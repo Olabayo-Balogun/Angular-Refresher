@@ -5,12 +5,7 @@ import { Component } from '@angular/core';
   selector: 'events-app',
 
   //template typically contains the code snippet that should be used as a template wherever its injected.
-  template: 
-  `
-    <h2>Hello World</h2>
-    <img src="assets/images/basic-shield.png"/>
-  `
-  //We can add static assets because of some arrays that were specified in the angular.json file under the build block which contains the "assets", "styles" and "scripts" array.
+  template: '<events-list></events-list>',
 })
 
 //The class must be exported for it to be useable/callable where you need it.
