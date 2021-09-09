@@ -7,13 +7,22 @@ import { Component } from '@angular/core';
   selector: 'events-list',
   //We use "templateUrl" here because we're importing an external template, we use the "template" word when we're writing template within the component.
   //It is important to properly route to the template html file in order to render the content well.
-  templateUrl: './events-list.component.html',
+  //By adding the "<event-thumbnail></event-thumbnail>" you're able to pass in data from here into the event-thumbnail component.
+  //The "event1" maps to the data within the class below while the one in square brackets maps to the "@Input()" property in the event-thumbnail component. (which allows us to send data to the component).
+  //Note that the name in the angle bracket must match the name after the "@Input()" method in the thumbnail component.
+  template: `
+    <div>
+      <h1>Upcoming Angular Events</h1>
+      <hr />
+      <event-thumbnail [event]="event1"></event-thumbnail>
+    </div>
+  `,
 })
 
 //The name assigned to the export class here must match the name imported in the app module for it to be recognizable.
 export class EventsListComponent {
   //The data below typically comes from an API
-  event = {
+  event1 = {
     id: 1,
     name: 'Angular Connect',
     date: '9/26/2036',

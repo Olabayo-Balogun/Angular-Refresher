@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 //We import the built component by calling the name we assigned to it in the "export class" code block within the component file.
 import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
+import { EventThumbnailComponent } from './events/event-thumbnail.component';
 
 @NgModule({
   declarations: [
     //Here is where we declare that it will be used. Components that will be used in a project are usually declared here.
     EventsAppComponent,
     EventsListComponent,
+    EventThumbnailComponent,
   ],
 
   //The "imports" array is where we declare modules that will be used thus making it's content available to the module it is declared in.
