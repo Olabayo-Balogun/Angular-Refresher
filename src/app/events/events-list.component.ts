@@ -5,23 +5,9 @@ import { Component } from '@angular/core';
 //The "\$" is used to escape the dollar sign because of the string literal
 @Component({
   selector: 'events-list',
-  template: `
-    <div>
-      <h1>Upcoming Angular Events</h1>
-      <hr />
-      <div class="well hoverwell thumbnail">
-        <h2>{{ event.name }}</h2>
-        <div>Date: {{ event.date }}</div>
-        <div>Time: {{ event.time }}</div>
-        <div>Price: \${{ event.price }}</div>
-        <div>
-          <span>Location: {{ event.location.address }}</span>
-          <span>&nbsp;</span>
-          <span>{{ event.location.city }}, {{ event.location.country }}</span>
-        </div>
-      </div>
-    </div>
-  `,
+  //We use "templateUrl" here because we're importing an external template, we use the "template" word when we're writing template within the component.
+  //It is important to properly route to the template html file in order to render the content well.
+  templateUrl: './events-list.component.html',
 })
 
 //The name assigned to the export class here must match the name imported in the app module for it to be recognizable.
