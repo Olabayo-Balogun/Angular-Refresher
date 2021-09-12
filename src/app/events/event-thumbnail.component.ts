@@ -12,19 +12,22 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <div>Price: \${{ event.price }}</div>
       <div>
         <span>Location: {{ event.location.address }}</span>
-        <span>&nbsp;</span>
-        <span>{{ event.location.city }}, {{ event.location.country }}</span>
+        <span class="pad-left"
+          >{{ event.location.city }}, {{ event.location.country }}</span
+        >
       </div>
     </div>
   `,
+  styles: [
+    `
+      .pad-left {
+        margin-left: 10px;
+      }
+    `,
+  ],
 })
 export class EventThumbnailComponent {
   //The code below basically creates an event property that is of type "any" because we're not particular about it's data type, it's like "var" in a way.
   //The "@Input()" method tells the project to expect data from another component.
   @Input() event: any;
-  someProperty: any = 'Some Value';
-
-  logFoo() {
-    console.log('foo');
-  }
 }
