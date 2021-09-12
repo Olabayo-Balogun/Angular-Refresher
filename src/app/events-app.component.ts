@@ -5,7 +5,10 @@ import { Component } from '@angular/core';
   selector: 'events-app',
 
   //template typically contains the code snippet that should be used as a template wherever its injected.
-  template: '<events-list></events-list>',
+  template: `
+    <nav-bar></nav-bar>
+    <events-list></events-list>
+  `,
 })
 
 //The class must be exported for it to be useable/callable where you need it.

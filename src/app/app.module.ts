@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
+import { NavBarComponent } from './nav/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
+    NavBarComponent,
   ],
 
   //The "imports" array is where we declare modules that will be used thus making it's content available to the module it is declared in.
