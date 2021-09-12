@@ -15,9 +15,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <span>&nbsp;</span>
         <span>{{ event.location.city }}, {{ event.location.country }}</span>
       </div>
-      <button class="btn btn-primary" (click)="handleClickMe()">
-        Click me!
-      </button>
     </div>
   `,
 })
@@ -25,13 +22,9 @@ export class EventThumbnailComponent {
   //The code below basically creates an event property that is of type "any" because we're not particular about it's data type, it's like "var" in a way.
   //The "@Input()" method tells the project to expect data from another component.
   @Input() event: any;
+  someProperty: any = 'Some Value';
 
-  //The "EventEmitter" below is an Angular method
-  //The output property name must be passed into the component in the parent component.
-  //Note that EventEmitters only pass on a single value, to pass on multiple values, wrap them in an object.
-  @Output() eventClick = new EventEmitter();
-  //We're sending a response to the parent component here.
-  handleClickMe() {
-    this.eventClick.emit(this.event.name);
+  logFoo() {
+    console.log('foo');
   }
 }
