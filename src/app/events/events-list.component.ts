@@ -10,11 +10,16 @@ import { Component } from '@angular/core';
   //By adding the "<event-thumbnail></event-thumbnail>" you're able to pass in data from here into the event-thumbnail component.
   //The "event1" maps to the data within the class below while the one in square brackets maps to the "@Input()" property in the event-thumbnail component. (which allows us to send data to the component).
   //Note that the name in the angle bracket must match the name after the "@Input()" method in the thumbnail component.
+  //Note that the output event property must match the name after the "@Output()" method in the EventThumbnailComponent
+  //The "($event)" refers to the response that is passed when the event is fired.
   template: `
     <div>
       <h1>Upcoming Angular Events</h1>
       <hr />
-      <event-thumbnail [event]="event1"></event-thumbnail>
+      <event-thumbnail
+        (eventClick)="handleEventClicked($event)"
+        [event]="event1"
+      ></event-thumbnail>
     </div>
   `,
 })
@@ -35,4 +40,9 @@ export class EventsListComponent {
       country: 'England',
     },
   };
+
+  //This helps us map to the function that was created in the child component and receive the data it's passing.
+  handleEventClicked(data) {
+    console.log('received:', data);
+  }
 }
