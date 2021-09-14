@@ -2,18 +2,19 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 //The purpose of this thumbnail component is to generate a bespoke list of events every time it is called,we separated it from the component html file because the html houses static code and this very block of code is mean't to be dynamic.
+//Adding the “?” to any interpolation and expression that is expected to receive data from a class makes it null safe.
 @Component({
   selector: 'event-thumbnail',
   template: `
     <div class="well hoverwell thumbnail">
-      <h2>{{ event.name }}</h2>
-      <div>Date: {{ event.date }}</div>
-      <div>Time: {{ event.time }}</div>
-      <div>Price: \${{ event.price }}</div>
+      <h2>{{ event?.name }}</h2>
+      <div>Date: {{ event?.date }}</div>
+      <div>Time: {{ event?.time }}</div>
+      <div>Price: \${{ event?.price }}</div>
       <div>
-        <span>Location: {{ event.location.address }}</span>
+        <span>Location: {{ event?.location.address }}</span>
         <span class="pad-left"
-          >{{ event.location.city }}, {{ event.location.country }}</span
+          >{{ event?.location.city }}, {{ event?.location.country }}</span
         >
       </div>
     </div>
