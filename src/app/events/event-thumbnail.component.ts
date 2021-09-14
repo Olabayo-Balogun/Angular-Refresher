@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div class="well hoverwell thumbnail">
       <h2>{{ event?.name }}</h2>
       <div>Date: {{ event?.date }}</div>
-      <div [style.color]="event?.time === '8:00 am' ? '#003300' : '#bbb'" [ngSwitch]="event?.time">
+      <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
         Time: {{ event?.time }}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
@@ -27,12 +27,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   //The "!important" is used to ensure that the style isn't overridden by any other styles.
   styles: [
     `
-      .green {
-        color: #003300 !important;
-      }
-      .bold {
-        font-weight: bold;
-      }
       .thumbnail {
         min-height: 210px;
       }
@@ -65,11 +59,11 @@ export class EventThumbnailComponent {
   // }
 
   //The code snippet above does the same thing as the code snippet below
-  getStartTimeClass() {
+  getStartTimeStyle(): any {
     if (this.event && this.event.time === '8:00 am') {
-      return ['green', 'bold'];
+      return { color: '#003300', 'font-weight': 'bold' };
     } else {
-      return [];
+      return {};
     }
   }
 }
