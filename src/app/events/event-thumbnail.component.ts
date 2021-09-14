@@ -2,7 +2,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 //The purpose of this thumbnail component is to generate a bespoke list of events every time it is called,we separated it from the component html file because the html houses static code and this very block of code is mean't to be dynamic.
-//Adding the “?” to any interpolation and expression that is expected to receive data from a class makes it null safe.
+//Adding the “!” to any interpolation and expression below hides the location if it's not available.
 @Component({
   selector: 'event-thumbnail',
   template: `
@@ -11,7 +11,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <div>Date: {{ event?.date }}</div>
       <div>Time: {{ event?.time }}</div>
       <div>Price: \${{ event?.price }}</div>
-      <div *ngIf="event?.location">
+      <div [hidden]="!event?.location">
         <span>Location: {{ event?.location.address }}</span>
         <span class="pad-left"
           >{{ event?.location.city }}, {{ event?.location.country }}</span
