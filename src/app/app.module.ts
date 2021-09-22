@@ -6,6 +6,7 @@ import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavBarComponent } from './nav/nav-bar.component';
+import { EventService } from './events/shared/event.service';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,8 @@ import { NavBarComponent } from './nav/nav-bar.component';
     BrowserModule,
   ],
 
-  //Services are declared with the "providers" array.
-  providers: [],
+  //Services are declared within the "providers" array, it helps Angular know where to find them.
+  providers: [EventService],
   // This is where we declare that the component is one that is instantly used when it is called.
   bootstrap: [EventsAppComponent],
 })
