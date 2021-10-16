@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
+import {ToastrService} from '../common/toastr.service';
+
+//This variable helps typescript to know that the toastr third-party library is in scope.
+declare let toastr;
 
 //The double braces in the <h2> tag is a one way binding which shows that it's not sending data back.
 //The "event" shows a model class while the "name" shows a property within the class, Angular will map to it and generate the content.
@@ -23,7 +27,10 @@ import { EventService } from './shared/event.service';
       <hr />
       <div class="row">
         <div *ngFor="let event of events" class="col-md-5">
-          <event-thumbnail [event]="event"></event-thumbnail>
+          <event-thumbnail
+            (click)="handleThumbnailClick(event.name)"
+            [event]="event"
+          ></event-thumbnail>
         </div>
       </div>
     </div>
@@ -31,12 +38,16 @@ import { EventService } from './shared/event.service';
 })
 
 //The name assigned to the export class here must match the name imported in the app module for it to be recognizable.
-export class EventsListComponent implements OnInit{
+export class EventsListComponent implements OnInit {
   //The data below typically comes from an API
   events: any[];
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private toastr:ToastrService) {}
 
   ngOnInit() {
     this.events = this.eventService.getEvents();
+  }
+
+  handleThumbnailClick(eventName) {
+    this.toastr.success(eventName);
   }
 }
