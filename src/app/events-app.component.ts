@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   // The selector name "events-app" is what must be called when trying to render its content (which is usually found in the template) to where you want it.
   selector: 'events-app',
