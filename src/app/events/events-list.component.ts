@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
-import {ToastrService} from '../common/toastr.service';
+import { ToastrService } from '../common/toastr.service';
 
 //This variable helps typescript to know that the toastr third-party library is in scope.
 declare let toastr;
@@ -9,13 +9,17 @@ declare let toastr;
 //The "event" shows a model class while the "name" shows a property within the class, Angular will map to it and generate the content.
 //The "\$" is used to escape the dollar sign because of the string literal
 @Component({
-  selector: 'events-list',
+  //Selector isn't need when routing is done properly.
+
   //It is important to properly route to the template html file in order to render the content well.
   //By adding the "<event-thumbnail></event-thumbnail>" you're able to pass in data from here into the event-thumbnail component.
+
   //The "event1" maps to the data within the class below while the one in square brackets maps to the "@Input()" property in the event-thumbnail component. (which allows us to send data to the component).
   //Note that the name in the angle bracket must match the name after the "@Input()" method in the thumbnail component.
+
   //The #thumbnail points to the event-thumbnail component
   //Note that the "*" before the "ngFor" is a structural directive
+
   //Structural directives are different from the normal directives because structural directives change the shape of the DOM (Document Object Module)
   //The “let” declares a variable and the variable is accessed in the template biding “event” as such a local variable is declared. The “of events” simply tells Angular to loop over the “events” array specified in the EventListComponent below the code above. Note that the names must match.
 
@@ -41,7 +45,10 @@ declare let toastr;
 export class EventsListComponent implements OnInit {
   //The data below typically comes from an API
   events: any[];
-  constructor(private eventService: EventService, private toastr:ToastrService) {}
+  constructor(
+    private eventService: EventService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.events = this.eventService.getEvents();
