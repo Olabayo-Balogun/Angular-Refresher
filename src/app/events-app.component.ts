@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   selector: 'events-app',
 
   //template typically contains the code snippet that should be used as a template wherever its injected.
-  //The <router-outlet></router-outlet> tag is used to tell Angular to map to the component that matches the url being requested.
+  //The <router-outlet></router-outlet> tag is used to tell Angular to map to the component that matches the url being  requested.
   template: `
     <nav-bar></nav-bar>
     <router-outlet></router-outlet>

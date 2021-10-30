@@ -10,8 +10,9 @@ import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
-import { EventDetailsComponent } from './events/event-details/event-detail.component';
-import { appRoutes } from './routes';
+  import { EventDetailsComponent } from './events/event-details/event-detail.component';
+  import { appRoutes } from './routes';
+  import { CreateEventComponent } from './events/create-event.component';
 
 @NgModule({
   //The "imports" array is where we declare modules that will be used thus making it's content available to the module it is declared in.
@@ -30,6 +31,7 @@ import { appRoutes } from './routes';
     EventThumbnailComponent,
     EventDetailsComponent,
     NavBarComponent,
+    CreateEventComponent
   ],
 
   //Services are declared within the "providers" array, it helps Angular know where to find them.
