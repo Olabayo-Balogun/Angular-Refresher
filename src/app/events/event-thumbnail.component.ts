@@ -5,8 +5,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 //"ngSwitch" is very handy for displaying certain elements in the DOM depending on the response from the evaluated expression
 @Component({
   selector: 'event-thumbnail',
+  //The router link here works like an anchor tag, only this is more dynamic as you specify the parameters
   template: `
-    <div class="well hoverwell thumbnail">
+    <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
       <h2>{{ event?.name }}</h2>
       <div>Date: {{ event?.date }}</div>
       <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
