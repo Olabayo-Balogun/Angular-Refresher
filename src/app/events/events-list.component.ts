@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
 
 //This variable helps typescript to know that the toastr third-party library is in scope.
 declare let toastr;
@@ -44,14 +45,15 @@ declare let toastr;
 //The name assigned to the export class here must match the name imported in the app module for it to be recognizable.
 export class EventsListComponent implements OnInit {
   //The data below typically comes from an API
-  events: any[];
+  events: any;
   constructor(
     private eventService: EventService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.events = this.eventService.getEvents();
+    this.events = this.route.snapshot.data['events'];
   }
 
   handleThumbnailClick(eventName) {
