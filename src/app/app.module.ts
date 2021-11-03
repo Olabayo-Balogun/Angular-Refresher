@@ -2,20 +2,25 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //Importing router module helps with declaring and using routes
 import { RouterModule } from '@angular/router';
+
+import{
+  EventsListResolver,
+  EventsListComponent,
+  EventThumbnailComponent,
+  EventService,
+  EventDetailsComponent,
+  EventRouteActivator,
+  CreateEventComponent
+}
+from './events/index'
+
 import { Error404Component } from './errors/404.component';
-import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 
 //We import the built component by calling the name we assigned to it in the "export class" code block within the component file.
-import { EventsAppComponent } from './events-app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
+import {  EventsAppComponent} from './events-app.component';
 import { NavBarComponent } from './nav/nav-bar.component';
-import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
-import { EventDetailsComponent } from './events/event-details/event-detail.component';
 import { appRoutes } from './routes';
-import { CreateEventComponent } from './events/create-event.component';
-import { EventsListResolver } from './events/events-list-resolver.service';
 
 @NgModule({
   //The "imports" array is where we declare modules that will be used thus making it's content available to the module it is declared in.

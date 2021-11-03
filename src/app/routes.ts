@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
-import { EventsListComponent } from './events/events-list.component';
-import { EventDetailsComponent } from './events/event-details/event-detail.component';
-import { CreateEventComponent } from './events/create-event.component';
+
+import{
+  EventsListResolver,
+  EventsListComponent,
+  EventDetailsComponent,
+  EventRouteActivator,
+  CreateEventComponent
+}
+from './events/index' 
+
 import { Error404Component } from './errors/404.component';
-import { EventRouteActivator } from './events/event-details/event-route-activator.service';
-import { EventsListResolver } from './events/events-list-resolver.service';
 
 export const appRoutes: Routes = [
   //The paths specified below show the name of the url, the location of the component.
@@ -29,4 +34,12 @@ export const appRoutes: Routes = [
   { path: '404', component: Error404Component },
   //The line of code below specifies the default route if the url is empty and also says that it should also route if the path being called matches the default route, the "pathMatch" does this.
   { path: '', redirectTo: '/events', pathMatch: 'full' },
+
+  //In the load children, we specify the file path of the module with the "#" suffix and the name of the module which is the name of the class being exported (concatenated).
+  //{ path: 'user', loadChildren: './user/user.module#UserModule' },
+  //The above line of code is the old way of doing routing of older modules, the newer one is shown below.
+
+  { path: 'user', 
+  loadChildren: () => import('./user/user.module').then(m => m.UserModule) }
+  //What the above line of code says is "when the path has the "user" prefix, load the "UserModule" class from the path "./user/user.module" and serve it"
 ];
