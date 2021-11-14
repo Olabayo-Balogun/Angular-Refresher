@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
 //In order to be able to access routing parameters, you need to import the "ActivatedRoute" from Angular
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from '../shared/index';
 
 @Component({
   //we don't need a selector for this page because it's not a child component of another page but a full page itself that we will route to.
@@ -21,7 +22,7 @@ import { ActivatedRoute } from '@angular/router';
   ],
 })
 export class EventDetailsComponent implements OnInit {
-  event: any;
+  event: IEvent;
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute

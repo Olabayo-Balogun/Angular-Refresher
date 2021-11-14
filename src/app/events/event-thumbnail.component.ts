@@ -1,5 +1,6 @@
 //You can import more components by adding a comma after the previous component
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IEvent } from './shared/index';
 
 //The purpose of this thumbnail component is to generate a bespoke list of events every time it is called,we separated it from the component html file because the html houses static code and this very block of code is mean't to be dynamic.
 //"ngSwitch" is very handy for displaying certain elements in the DOM depending on the response from the evaluated expression
@@ -43,7 +44,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class EventThumbnailComponent {
   //The code below basically creates an event property that is of type "any" because we're not particular about it's data type, it's like "var" in a way.
   //The "@Input()" method tells the project to expect data from another component.
-  @Input() event: any;
+  @Input() event: IEvent;
 
   //getStartTimeClass(){
   //The "isEarlyStart" is what evaluates the condition while we declare the styling component that should accompany the style.
