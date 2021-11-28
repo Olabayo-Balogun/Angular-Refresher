@@ -7,7 +7,8 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a [routerLink]="['/events']" routerLinkActive="active" [routerLinkActiveOptions] = "{exact:true}">All Events</a>
+          <a [routerLink]="['/events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">All
+            Events</a>
         </li>
         <li><a [routerLink]="['events/new']" routerLinkActive="active">Create Event</a></li>
         <li class="dropdown">
@@ -25,7 +26,10 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li>
-            <a [routerLink] = "['user/profile']">Welcome John</a>
+            <!-- The login feature is modified (using the "ngIf" to only show if the user isn't authenticated) -->
+            <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+            <!-- If the user is authenticated, the user's first name will be displayed-->
+            <a *ngIf="auth.isAuthenticated()" [routerLink]="['user/profile']">Welcome {{auth.currentUser.firstName}}</a>
           </li>
         </ul>
       </div>

@@ -2,22 +2,22 @@ import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //Importing router module helps with declaring and using routes
 import { RouterModule } from '@angular/router';
+import { AuthService } from './user/auth.service';
 
-import{
+import {
   EventsListResolver,
   EventsListComponent,
   EventThumbnailComponent,
   EventService,
   EventDetailsComponent,
   EventRouteActivator,
-  CreateEventComponent
-}
-from './events/index'
+  CreateEventComponent,
+} from './events/index';
 
 import { Error404Component } from './errors/404.component';
 
 //We import the built component by calling the name we assigned to it in the "export class" code block within the component file.
-import {  EventsAppComponent} from './events-app.component';
+import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/nav-bar.component';
 import { ToastrService } from './common/toastr.service';
 import { appRoutes } from './routes';
@@ -55,6 +55,7 @@ import { appRoutes } from './routes';
     //We'll be using the longhand way to declare our canDeactivate function, code below shows how it's done.
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventsListResolver,
+    AuthService,
   ],
   // This is where we declare that the component is one that is instantly used when it is called.
   bootstrap: [EventsAppComponent],
