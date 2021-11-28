@@ -1,0 +1,21 @@
+<div>
+    <h1>Edit Your Profile </h1>
+    <hr>
+    <div class="col-md-4">
+        <!-- The "(ngSubmit)" is what submits (and tries to save) the content of the form when the "save" button is clicked -->
+        <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <!-- Note that the "firstName" in the "formGroupName" has to match the value declared in the "FormGroup" properties in the "profile.component.ts" file. All values being mapped to must share the same property name-->
+                <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" (click)="cancel()" class="btn btn-default">Cancel</button>
+        </form>
+        <div>
+        </div>

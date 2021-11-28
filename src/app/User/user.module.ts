@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { userRoutes } from './user.routes';
 import { ProfileComponent } from './profile.component';
@@ -12,6 +12,7 @@ import { LoginComponent } from './login.component';
     //We only import browser module within the app module
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     //We use RouterModule.forRoot only for our app module
     RouterModule.forChild(userRoutes),
   ],
